@@ -31,3 +31,13 @@
 
 {{-- user custom styles --}}
 <link rel="stylesheet" href="{{ asset(mix('css/style.css')) }}" />
+
+
+<!-- <script src="{{ mix('/js/app.js') }}"></script> -->
+@section('page-script')
+
+
+
+@endsection
+
+

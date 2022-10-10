@@ -180,5 +180,17 @@ return [
   "Verify Email" => "Verify Email",
   "Deactivate Account" => "Deactivate Account",
   "Promotional" => "Promotional",
-  "message" => "Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops."
+  "message" => "Cake sesame snaps cupcake gingerbread danish I love gingerbread. Apple pie pie jujubes chupa chups muffin halvah lollipop. Chocolate cake oat cake tiramisu marzipan sugar plum. Donut sweet pie oat cake dragée fruitcake cotton candy lemon drops.",
+  "Inicio" => "Inicio",
+  "Academico" => "Academico",
+  "Ficha Personal" => "Ficha Personal",
+  "Malla Curricular" => "Malla Curricular",
+  "Ficha Estudiantil" => "Ficha Estudiantil",
+  "Asistencia" => "Asistencia",
+  "Notificacion" => "Notificacion",
+  "Aula Virtual" => "Aula Virtual",
+  "Boletion por Estudiante" => "Boletion por Estudiante",
+  "Boletion por Sección" => "Boletion por Sección",
+  
+
 ];

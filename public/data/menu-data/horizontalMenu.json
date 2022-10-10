@@ -1,7 +1,7 @@
 {
   "menu": [
     {
-      "name": "Dashboards",
+      "name": "Inicio",
       "icon": "home",
       "slug": "",
       "submenu": [
@@ -10,30 +10,24 @@
           "name": "Analytics",
           "icon": "activity",
           "slug": "dashboard-analytics"
-        },
-        {
-          "url": "dashboard/ecommerce",
-          "name": "eCommerce",
-          "icon": "shopping-cart",
-          "slug": "dashboard-ecommerce"
-        }
+        }       
       ]
     },
     {
-      "name": "Apps",
+      "name": "Academico",
       "icon": "package",
       "dropdown": "1",
       "slug": "",
       "submenu": [
         {
-          "url": "app/email",
-          "name": "Email",
+          "url": "vsemblox/vsemblox",
+          "name": "Ficha Personal",
           "icon": "mail",
-          "slug": "app-email"
+          "slug": "vsemblox-vsemblox"
         },
         {
-          "url": "app/chat",
-          "name": "Chat",
+          "url": "vssecmat/vssecmat",
+          "name": "Malla Curricular",
           "icon": "message-square",
           "slug": "app-chat"
         },

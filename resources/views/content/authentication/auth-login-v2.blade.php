@@ -16,8 +16,6 @@ $configData = Helper::applClasses();
 
 <div id="app">
 
-<lista></lista>
-
 <div class="auth-wrapper auth-v2">
   <div class="auth-inner row m-0">
     
@@ -38,22 +36,23 @@ $configData = Helper::applClasses();
   
       <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-          <h2 class="card-title font-weight-bold mb-1">Welcome to Vuexy! &#x1F44B;</h2>
-          <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
-          <form class="auth-login-form mt-2" action="/" method="GET">
+          <h2 class="card-title font-weight-bold mb-1">Bienvenido ! &#x1F44B;</h2>
+          <p class="card-text mb-2">Inicia sesión en tu cuenta</p>
+          <form method="POST" class="auth-login-form mt-2"   accept-charset="utf-8" action="{{ route('authenticate') }}" >
+          @csrf
             <div class="form-group">
-              <label class="form-label" for="login-email">Email</label>
-              <input class="form-control" id="login-email" type="text" name="login-email" placeholder="john@example.com" aria-describedby="login-email" autofocus="" tabindex="1" />
+              <label class="form-label" for="codigo">Id de Usuario</label>
+              <input class="form-control" id="USU_ID" type="text" name="USU_ID" aria-describedby="USU_ID" autofocus="" tabindex="1" />
             </div>
             <div class="form-group">
               <div class="d-flex justify-content-between">
-                <label for="login-password">Password</label>
+                <label for="password">Contraseñaº</label>
                 <a href="{{url("auth/forgot-password-v2")}}">
-                  <small>Forgot Password?</small>
+                  <small>Olvidaste Contraseña</small>
                 </a>
               </div>
               <div class="input-group input-group-merge form-password-toggle">
-                <input class="form-control form-control-merge" id="login-password" type="password" name="login-password" placeholder="············" aria-describedby="login-password" tabindex="2" />
+                <input class="form-control form-control-merge" id="USU_PAS" type="password" name="USU_PAS" placeholder="············" aria-describedby="password" tabindex="2" />
                 <div class="input-group-append">
                   <span class="input-group-text cursor-pointer">
                     <i data-feather="eye"></i>
@@ -61,35 +60,25 @@ $configData = Helper::applClasses();
                 </div>
               </div>
             </div>
+            @if ($errors->has('errors'))
+                                <label class="error">
+                                    <strong>Credenciales incorrectas</strong>
+                                </label>
+             @enderror
             <div class="form-group">
               <div div class="custom-control custom-checkbox">
                 <input class="custom-control-input" id="remember-me" type="checkbox" tabindex="3" />
-                <label class="custom-control-label" for="remember-me">Remember Me</label>
+                <label class="custom-control-label" for="remember-me">Recordar</label>
               </div>
             </div>
-            <button class="btn btn-primary btn-block" tabindex="4">Sign in</button>
+            <button class="btn btn-primary btn-block"  type="submit" tabindex="4">Ingresar</button>
           </form>
           <p class="text-center mt-2">
-            <span>New on our platform?</span>
-            <a href="{{url('auth/register-v2')}}"><span>&nbsp;Create an account</span></a>
+            <span>Nuevo en la plataforma?</span>
+            <a href="{{url('auth/register-v2')}}"><span>&nbsp;Crear Cuenta</span></a>
           </p>
-          <div class="divider my-2">
-            <div class="divider-text">or</div>
-          </div>
-          <div class="auth-footer-btn d-flex justify-content-center">
-            <a class="btn btn-facebook" href="javascript:void(0)">
-              <i data-feather="facebook"></i>
-            </a>
-            <a class="btn btn-twitter white" href="javascript:void(0)">
-              <i data-feather="twitter"></i>
-            </a>
-            <a class="btn btn-google" href="javascript:void(0)">
-              <i data-feather="mail"></i>
-            </a>
-            <a class="btn btn-github" href="javascript:void(0)">
-              <i data-feather="github"></i>
-            </a>
-          </div>
+        
+        
       </div>
     </div>
  

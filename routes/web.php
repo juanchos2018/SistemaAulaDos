@@ -1,21 +1,73 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Auth::routes(['verify' => true]);
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VsTablesController;
+use App\Http\Controllers\VsEmploxController;
+use App\Http\Controllers\VsSecmatController;
+use App\Http\Controllers\VsEctionController;
+
+
+//Auth::routes(['verify' => true]);
+
+
 
 // Main Page Route
 Route::get('/', 'DashboardController@dashboardEcommerce')->name('dashboard-ecommerce');
+
+
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
+
+Route::group(['prefix' => 'vsemblox'], function()
+{   Route::get('/vsemblox', 'VsEmploxController@index')->name('vsemblox');
+    Route::get('/record/{EMP_NO}',[VsEmploxController::class, 'record']);    
+    Route::get('/records','VsEmploxController@records');    
+    Route::post('/store',[VsEmploxController::class, 'store']);  
+ 
+});
+
+
+Route::group(['prefix' => 'vssecmat'], function(){
+  Route::get('/vssecmat', 'VsSecmatController@index')->name('vssecmat');
+  Route::get('/records/{search?}',[VsSecmatController::class, 'records']);
+
+  Route::post('/store',[VsSecmatController::class, 'store']);    
+  Route::post('/vsdupmat',[VsSecmatController::class, 'vsdupmat']);    
+
+});
+
+
+Route::group(['prefix' => 'vsection'], function()
+{
+    Route::get('/selectVsection',[VsEctionController::class, 'selectVsection']); 
+    Route::get('/selectVsmatter',[VsEctionController::class, 'selectVsmatter']); 
+    Route::get('/selectVsemplox',[VsEctionController::class, 'selectVsemplox']); 
+    Route::get('/oneVssecmat/{SEC_ID}',[VsEctionController::class, 'oneVssecmat']); 
+   
+});
+
+
+
+
+Route::group(['prefix' => 'vstables'], function()
+{
+    Route::get('/records/{tabla}',[VsTablesController::class, 'selectTable']); 
+   
+});
+
+
+
+
+
+
+
+
+
+
+
 
 /* Route Dashboards */
 Route::group(['prefix' => 'dashboard'], function () {
@@ -149,6 +201,8 @@ Route::group(['prefix' => 'form'], function () {
 
 /* Route Tables */
 Route::group(['prefix' => 'table'], function () {
+  
+
   Route::get('', 'TableController@table')->name('table');
   Route::get('datatable/basic', 'TableController@datatable_basic')->name('datatable-basic');
   Route::get('datatable/advance', 'TableController@datatable_advance')->name('datatable-advance');
@@ -198,6 +252,11 @@ Route::group(['prefix' => 'chart'], function () {
   Route::get('echarts', 'ChartsController@echarts')->name('chart-echarts');
 });
 /* Route Charts */
+
+
+
+
+
 
 // map leaflet
 Route::get('/maps/leaflet', 'ChartsController@maps_leaflet')->name('map-leaflet');

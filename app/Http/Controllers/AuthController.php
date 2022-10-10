@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 use App\User;
 use Validator;
+use App\Models\VsAccess;
+use App\Http\Controllers\DashboardController;
 
 class AuthController extends Controller
 {
@@ -55,10 +57,11 @@ class AuthController extends Controller
   public function login(Request $request)
   {
     $request->validate([
-      'email' => 'required|string|email',
+      'codigo' => 'required|string',
       'password' => 'required|string',
       'remember_me' => 'boolean'
     ]);
+
     $credentials = request(['email', 'password']);
     if (!Auth::attempt($credentials))
       return response()->json([
@@ -84,6 +87,42 @@ class AuthController extends Controller
    *
    * @return [string] message
    */
+
+  public function authenticateTwo(Request $request){
+
+    $result = Usuario::login($request->cod_usuario,$request->password,$request->cbx_sucursal);   
+    if ($result) {
+
+        $userdata = array(
+            'cod_usuario' => $request->cod_usuario,
+            'sucursal' => $request->cbx_sucursal
+        );      
+      
+       return redirect()->action([RecepcionController::class, 'Index']);
+         
+    }else{                  
+       return redirect()->back()->withErrors(['errors' => trans('auth.failed')]);
+    }        
+       
+}
+  public function authenticate(Request $request){
+     
+ 
+        $result = VsAccess::login($request->USU_ID,hash('sha256',$request->USU_PAS));          
+       
+        if ($result->status==200) {
+           $request->session()->put('USU_ROL',$result->user->USU_ROL);
+           $request->session()->put('USU_NO',$result->user->USU_NO);
+      
+         /// return response()->json(['status' => 200,'result' => $result]);   
+          return redirect()->action([DashboardController::class, 'dashboardAnalytics']);
+        }else{  
+
+          return redirect()->back()->withErrors(['errors' => trans('auth.failed')]);
+        }        
+                 
+}
+
   public function logout(Request $request)
   {
     $request->user()->token()->revoke();
