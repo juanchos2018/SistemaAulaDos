@@ -113,6 +113,9 @@ class AuthController extends Controller
         if ($result->status==200) {
            $request->session()->put('USU_ROL',$result->user->USU_ROL);
            $request->session()->put('USU_NO',$result->user->USU_NO);
+
+           $request->session()->put('USU_NM',$result->userData->USU_NM);
+           $request->session()->put('USU_ROL_NAME',$result->userData->rol_name);
       
          /// return response()->json(['status' => 200,'result' => $result]);   
           return redirect()->action([DashboardController::class, 'dashboardAnalytics']);
@@ -127,7 +130,7 @@ class AuthController extends Controller
   {
     $request->user()->token()->revoke();
     return response()->json([
-      'message' => 'Successfully logged out'
+      'message' => 'Cerrar sesión con éxito'
     ]);
   }
 

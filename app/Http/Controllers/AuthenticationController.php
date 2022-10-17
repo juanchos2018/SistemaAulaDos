@@ -19,6 +19,14 @@ class AuthenticationController extends Controller
   {
     $pageConfigs = ['blankPage' => true];
 
+    if (session()->has('USU_NO')) {
+        session()->pull('USU_NO');
+        session()->pull('USU_NO');
+        session()->pull('USU_NM');
+        session()->pull('USU_ROL_NAME');
+    //  return redirect()->action([LoginController::class, 'index']);
+     }
+
     return view('/content/authentication/auth-login-v2', ['pageConfigs' => $pageConfigs]);
   }
 

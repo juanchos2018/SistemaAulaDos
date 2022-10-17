@@ -10,6 +10,11 @@ use App\Models\VsTudent;
 
 use App\Http\Resources\VsEcmatCollection;
 
+use App\Exports\VsEcmatExport;
+
+use Maatwebsite\Excel\Excel;
+
+
 class VsSecmatController extends Controller
 {
     //
@@ -158,4 +163,48 @@ class VsSecmatController extends Controller
             return response()->json(['status' => 404,'message'=>$e->getMessage()]);
         } 
     }
+
+
+    public function exportExcel(){       
+        $data = $this->dataExport();
+        //return (new VsEcmatExport)->download('VsSecmat.xlsx', Excel::XLSX);
+        return (new  VsEcmatExport)->vsecmats($data)->download('VsEcmat.xlsx', Excel::XLSX);     
+
+        //return (new VsEmploxExport)->vsemploxs($data)->download('vsemploxs.xlsx', Excel::XLSX);
+   
+    }
+
+    public function exportPdf(){    
+    
+        $data = $this->dataExport();
+       // return (new VsEcmatExport)->download('VsSecmat.pdf', Excel::DOMPDF);     
+        return (new  VsEcmatExport)->vsecmats($data)->download('VsEcmat.pdf', Excel::DOMPDF);     
+    }
+    
+    function dataExport(){
+
+        $data=array();
+
+        switch($this->getSelecRol())
+        {
+            case 5:  // Docente				
+                $result = VsEcmat::where('EMP_NO', $this->getSelecUser())->get();
+                $data   = new VsEcmatCollection($result);               
+                break;
+
+            case 7:  // Estudiante		
+                $seccio = VsTudent::find($this->getSelecUser()); 
+                $result = VsEcmat::where('SEC_NO',$seccio->SEC_NO)->get();
+                $data   = new VsEcmatCollection($result);             
+                break;
+           
+            default:					
+                $result  = VsEcmat::orderBy('SEC_NO')->get();   
+                $data    = new VsEcmatCollection($result);       
+                break;
+        }
+
+        return $data;       
+    } 
+
 }

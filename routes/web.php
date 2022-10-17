@@ -8,39 +8,55 @@ use App\Http\Controllers\VsTablesController;
 use App\Http\Controllers\VsEmploxController;
 use App\Http\Controllers\VsSecmatController;
 use App\Http\Controllers\VsEctionController;
-
+use App\Http\Controllers\VsStudentController;
+use App\Http\Controllers\VsAbsentController;
+use App\Http\Controllers\VsNotifyController;
+use App\Http\Controllers\VsChedulController;
+use App\Http\Controllers\VsLibstdController;
+use App\Http\Controllers\VsLibsecController;
+use App\Http\Controllers\VsActsavController;
+use App\Http\Controllers\VsActmatController;
 
 //Auth::routes(['verify' => true]);
 
-
-
 // Main Page Route
-Route::get('/', 'DashboardController@dashboardEcommerce')->name('dashboard-ecommerce');
+Route::get('/', 'AuthenticationController@login_v2')->name('auth-login-v2');
 
 
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 
 
-Route::group(['prefix' => 'vsemblox'], function()
+Route::group(['prefix' => 'dashboard','middleware' => 'usercheck'], function () {
+  Route::get('analytics', 'DashboardController@dashboardAnalytics')->name('dashboard-analytics');
+  Route::get('ecommerce', 'DashboardController@dashboardEcommerce')->name('dashboard-ecommerce');
+});
+
+
+Route::group(['prefix' => 'vsemblox', 'middleware' => 'usercheck'], function()
 {   Route::get('/vsemblox', 'VsEmploxController@index')->name('vsemblox');
     Route::get('/record/{EMP_NO}',[VsEmploxController::class, 'record']);    
     Route::get('/records','VsEmploxController@records');    
     Route::post('/store',[VsEmploxController::class, 'store']);  
+    Route::get('/excel', [VsEmploxController::class, 'exportExcel']);
+    Route::get('/pdf', [VsEmploxController::class, 'exportPdf']);
  
 });
 
-
-Route::group(['prefix' => 'vssecmat'], function(){
+Route::group(['prefix' => 'vssecmat', 'middleware' => 'usercheck'], function(){
+  
   Route::get('/vssecmat', 'VsSecmatController@index')->name('vssecmat');
   Route::get('/records/{search?}',[VsSecmatController::class, 'records']);
 
   Route::post('/store',[VsSecmatController::class, 'store']);    
-  Route::post('/vsdupmat',[VsSecmatController::class, 'vsdupmat']);    
+  Route::post('/vsdupmat',[VsSecmatController::class, 'vsdupmat']);   
+  
+  
+  Route::get('/excel', [VsSecmatController::class, 'exportExcel']);
+  Route::get('/pdf', [VsSecmatController::class, 'exportPdf']);
 
 });
 
-
-Route::group(['prefix' => 'vsection'], function()
+Route::group(['prefix' => 'vsection', 'middleware' => 'usercheck'], function()
 {
     Route::get('/selectVsection',[VsEctionController::class, 'selectVsection']); 
     Route::get('/selectVsmatter',[VsEctionController::class, 'selectVsmatter']); 
@@ -49,12 +65,74 @@ Route::group(['prefix' => 'vsection'], function()
    
 });
 
-
-
-
-Route::group(['prefix' => 'vstables'], function()
+Route::group(['prefix' => 'vstables', 'middleware' => 'usercheck'], function()
 {
     Route::get('/records/{tabla}',[VsTablesController::class, 'selectTable']); 
+   
+});
+
+//vstudent
+Route::group(['prefix' => 'vstudent', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vstudent', 'VsStudentController@index')->name('vsstudent');
+    Route::get('/records/{search?}',[VsStudentController::class, 'records']);
+   
+});
+
+Route::group(['prefix' => 'vsabsent', 'middleware' => 'usercheck'], function(){
+
+    Route::get('/vsabsent', 'VsAbsentController@index')->name('vsabsent');
+    Route::get('/records/{search?}',[VsAbsentController::class, 'records']);
+    Route::get('/excel', [VsAbsentController::class, 'exportExcel']);
+    Route::get('/pdf',   [VsAbsentController::class, 'exportPdf']);
+   
+});
+
+Route::group(['prefix' => 'vsnotify', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vsnotify', 'VsNotifyController@index')->name('index');
+    Route::get('/records/{search?}',[VsNotifyController::class, 'records']); 
+   
+});
+
+Route::group(['prefix' => 'vschedul', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vschedul', 'VsChedulController@index')->name('index');
+    Route::get('/records/{search?}',[VsChedulController::class, 'records']); 
+    Route::get('/excel', [VsChedulController::class, 'exportExcel']);
+    Route::get('/pdf',   [VsChedulController::class, 'exportPdf']);
+   
+});
+
+Route::group(['prefix' => 'vslibstd', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vslibstd', 'VsLibstdController@index')->name('index');
+    Route::get('/records/{search?}',[VsLibstdController::class, 'records']); 
+   
+});
+
+
+Route::group(['prefix' => 'vslibsec', 'middleware' => 'usercheck'], function()
+{   Route::get('/vslibsec', 'VsLibsecController@index')->name('index');
+    Route::get('/records/{search?}',[VsLibsecController::class, 'records']); 
+   
+});
+
+Route::group(['prefix' => 'vsactsav', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vsactsav', 'VsActsavController@index')->name('index');
+    Route::get('/records/{search?}',[VsActsavController::class, 'records']); 
+    Route::get('/excel', [VsActsavController::class, 'exportExcel']);
+    Route::get('/pdf',   [VsActsavController::class, 'exportPdf']);
+   
+});
+
+
+
+Route::group(['prefix' => 'vsactmat', 'middleware' => 'usercheck'], function()
+{
+    Route::get('/vsactmat', 'VsActmatController@index')->name('index');
+    Route::get('/records/{search?}',[VsActmatController::class, 'records']); 
    
 });
 
@@ -69,18 +147,14 @@ Route::group(['prefix' => 'vstables'], function()
 
 
 
-/* Route Dashboards */
-Route::group(['prefix' => 'dashboard'], function () {
-  Route::get('analytics', 'DashboardController@dashboardAnalytics')->name('dashboard-analytics');
-  Route::get('ecommerce', 'DashboardController@dashboardEcommerce')->name('dashboard-ecommerce');
-});
+
 /* Route Dashboards */
 
 /* Route Apps */
 Route::group(['prefix' => 'app'], function () {
-  Route::get('email', 'AppsController@emailApp')->name('app-email');
-  Route::get('chat', 'AppsController@chatApp')->name('app-chat');
-  Route::get('todo', 'AppsController@todoApp')->name('app-todo');
+ // Route::get('email', 'AppsController@emailApp')->name('app-email');
+ // Route::get('chat', 'AppsController@chatApp')->name('app-chat');
+ // Route::get('todo', 'AppsController@todoApp')->name('app-todo');
   Route::get('calendar', 'AppsController@calendarApp')->name('app-calendar');
   Route::get('kanban', 'AppsController@kanbanApp')->name('app-kanban');
   Route::get('invoice/list', 'AppsController@invoice_list')->name('app-invoice-list');
@@ -214,7 +288,7 @@ Route::group(['prefix' => 'table'], function () {
 Route::group(['prefix' => 'page'], function () {
   Route::get('account-settings', 'PagesController@account_settings')->name('page-account-settings');
   Route::get('profile', 'PagesController@profile')->name('page-profile');
-  Route::get('faq', 'PagesController@faq')->name('page-faq');
+  //Route::get('faq', 'PagesController@faq')->name('page-faq');
   Route::get('knowledge-base', 'PagesController@knowledge_base')->name('page-knowledge-base');
   Route::get('knowledge-base/category', 'PagesController@kb_category')->name('page-knowledge-base');
   Route::get('knowledge-base/category/question', 'PagesController@kb_question')->name('page-knowledge-base');

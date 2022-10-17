@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="text-center">
-            <h1 class="mb-1 text-white">Congratulations John,</h1>
+            <h1 class="mb-1 text-white">Bienvenido Usuaroi,</h1>
             <p class="card-text m-auto w-75">
               You have done <strong>57.6%</strong> more sales today. Check your new badge in your profile.
             </p>
@@ -52,9 +52,7 @@
         </div>
       </div>
     </div>
-    <!-- Greetings Card ends -->
-
-    <!-- Subscribers Chart Card starts -->
+  
     <div class="col-lg-3 col-sm-6 col-12">
       <div class="card">
         <div class="card-header flex-column align-items-start pb-0">
@@ -64,14 +62,12 @@
             </div>
           </div>
           <h2 class="font-weight-bolder mt-1">92.6k</h2>
-          <p class="card-text">Subscribers Gained</p>
+          <p class="card-text">Estudiantes</p>
         </div>
         <div id="gained-chart"></div>
       </div>
     </div>
-    <!-- Subscribers Chart Card ends -->
-
-    <!-- Orders Chart Card starts -->
+  
     <div class="col-lg-3 col-sm-6 col-12">
       <div class="card">
         <div class="card-header flex-column align-items-start pb-0">
@@ -81,16 +77,16 @@
             </div>
           </div>
           <h2 class="font-weight-bolder mt-1">38.4K</h2>
-          <p class="card-text">Orders Received</p>
+          <p class="card-text">Tareas</p>
         </div>
         <div id="order-chart"></div>
       </div>
     </div>
-    <!-- Orders Chart Card ends -->
+
   </div>
 
-  <div class="row match-height">
-    <!-- Avg Sessions Chart Card starts -->
+  <!-- <div class="row match-height">
+
     <div class="col-lg-6 col-12">
       <div class="card">
         <div class="card-body">
@@ -185,9 +181,7 @@
         </div>
       </div>
     </div>
-    <!-- Avg Sessions Chart Card ends -->
-
-    <!-- Support Tracker Chart Card starts -->
+  
     <div class="col-lg-6 col-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between pb-0">
@@ -237,11 +231,11 @@
         </div>
       </div>
     </div>
-    <!-- Support Tracker Chart Card ends -->
-  </div>
 
-  <div class="row match-height">
-    <!-- Timeline Card -->
+  </div> -->
+
+  <!-- <div class="row match-height">
+
     <div class="col-lg-4 col-12">
       <div class="card card-user-timeline">
         <div class="card-header">
@@ -374,9 +368,7 @@
         </div>
       </div>
     </div>
-    <!--/ Timeline Card -->
 
-    <!-- Sales Stats Chart Card starts -->
     <div class="col-lg-4 col-md-6 col-12">
       <div class="card">
         <div class="card-header d-flex justify-content-between align-items-start pb-1">
@@ -410,9 +402,7 @@
         </div>
       </div>
     </div>
-    <!-- Sales Stats Chart Card ends -->
-
-    <!-- App Design Card -->
+  
     <div class="col-lg-4 col-md-6 col-12">
       <div class="card card-app-design">
         <div class="card-body">
@@ -467,11 +457,11 @@
         </div>
       </div>
     </div>
-    <!--/ App Design Card -->
-  </div>
+    
+  </div> -->
 
-  <!-- List DataTable -->
-  <div class="row">
+
+  <!-- <div class="row">
     <div class="col-12">
       <div class="card invoice-list-wrapper">
         <div class="card-datatable table-responsive">
@@ -493,10 +483,10 @@
         </div>
       </div>
     </div>
-  </div>
-  <!--/ List DataTable -->
+  </div> -->
+
 </section>
-<!-- Dashboard Analytics end -->
+
 @endsection
 
 @section('vendor-script')

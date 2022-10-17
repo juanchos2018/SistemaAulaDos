@@ -50,8 +50,8 @@ class VsEcmat extends Model
         ->join("vsemplox", "vsemplox.EMP_NO", "=", "vssecmat.EMP_NO")        
         ->select('vssecmat.SEC_NO','vsection.SEC_NM','vsection.NIV_NO','vsection.PARALE', 'vsection.JOR_NO')      
         ->where("vssecmat.EMP_NO",$USU_NO)
-        ->orderBy('vsection.NIV_NO','DESC')
-        ->paginate(10);  
+        ->orderBy('vsection.NIV_NO','DESC');
+       
     }
 
     public static function selectVsactsav($USU_NO){

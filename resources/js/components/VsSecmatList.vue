@@ -15,7 +15,7 @@
                 size="sm"
                 class="mr-1"
                 variant="success"
-             
+                @click="exportExcel"
               >
                 <b-icon icon="file-earmark-excel" aria-hidden="true"></b-icon>
                 Excel
@@ -24,7 +24,7 @@
                 size="sm"
                 variant="danger"
                 class="mr-1"
-             
+                 @click="exportPdf"
               >
                 <b-icon icon="file-pdf" aria-hidden="true"></b-icon> PDF
               </b-button>
@@ -191,7 +191,7 @@ export default {
         method: "GET",
         url: url,
       }).then((response) => {    
-        //console.log(response);    
+        console.log(response);    
         const { status, result } = response.data;       
          me.items=result.data;
          me.total_pages = result.pagination.total_pages;
@@ -202,7 +202,15 @@ export default {
     },
     viewFicha(SEC_ID){
 
-    }    
+    },
+    exportExcel(){
+        let url = "/vssecmat/excel/";
+      window.open(url, "_blank");
+    },
+    exportPdf  ()  {
+      let url = "/vssecmat/pdf/";
+      window.open(url, "_blank");
+    }
   },
 };
 </script>

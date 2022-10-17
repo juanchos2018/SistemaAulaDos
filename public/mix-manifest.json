@@ -1392,6 +1392,7 @@
     "/data/jstree-data.json": "/data/jstree-data.json",
     "/data/kanban.json": "/data/kanban.json",
     "/data/menu-data/horizontalMenu.json": "/data/menu-data/horizontalMenu.json",
+    "/data/menu-data/oldroutes.json": "/data/menu-data/oldroutes.json",
     "/data/menu-data/verticalMenu.json": "/data/menu-data/verticalMenu.json",
     "/data/search.json": "/data/search.json",
     "/data/table-datatable.json": "/data/table-datatable.json",

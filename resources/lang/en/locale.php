@@ -191,6 +191,8 @@ return [
   "Aula Virtual" => "Aula Virtual",
   "Boletion por Estudiante" => "Boletion por Estudiante",
   "Boletion por Sección" => "Boletion por Sección",
+  "Registrar Calificaciones" => "Registrar Calificaciones",
+  "Actas de Calificaciones" => "Actas de Calificaciones",
   
 
 ];

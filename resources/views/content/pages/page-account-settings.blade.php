@@ -44,7 +44,7 @@
             aria-expanded="false"
           >
             <i data-feather="lock" class="font-medium-3 mr-1"></i>
-            <span class="font-weight-bold">Change Password</span>
+            <span class="font-weight-bold">Cambiar Contraseña</span>
           </a>
         </li>
         <!-- information -->
@@ -57,7 +57,7 @@
             aria-expanded="false"
           >
             <i data-feather="info" class="font-medium-3 mr-1"></i>
-            <span class="font-weight-bold">Information</span>
+            <span class="font-weight-bold">Informacion</span>
           </a>
         </li>
         <!-- social -->
@@ -74,18 +74,7 @@
           </a>
         </li>
         <!-- notification -->
-        <li class="nav-item">
-          <a
-            class="nav-link"
-            id="account-pill-notifications"
-            data-toggle="pill"
-            href="#account-vertical-notifications"
-            aria-expanded="false"
-          >
-            <i data-feather="bell" class="font-medium-3 mr-1"></i>
-            <span class="font-weight-bold">Notifications</span>
-          </a>
-        </li>
+       
       </ul>
     </div>
     <!--/ left menu section -->
@@ -117,10 +106,10 @@
                 </a>
                 <!-- upload and reset button -->
                 <div class="media-body mt-75 ml-1">
-                  <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Upload</label>
+                  <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Subir</label>
                   <input type="file" id="account-upload" hidden accept="image/*" />
                   <button class="btn btn-sm btn-outline-secondary mb-75">Reset</button>
-                  <p>Allowed JPG, GIF or PNG. Max size of 800kB</p>
+                  <p>Permitido JPG, GIF o PNG. Tamaño máximo de 800kB</p>
                 </div>
                 <!--/ upload and reset button -->
               </div>
@@ -131,7 +120,7 @@
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-username">Username</label>
+                      <label for="account-username">Codigo</label>
                       <input
                         type="text"
                         class="form-control"
@@ -144,7 +133,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-name">Name</label>
+                      <label for="account-name">Nombres</label>
                       <input
                         type="text"
                         class="form-control"
@@ -157,7 +146,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-e-mail">E-mail</label>
+                      <label for="account-e-mail">Correo</label>
                       <input
                         type="email"
                         class="form-control"
@@ -170,7 +159,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-company">Company</label>
+                      <label for="account-company">Otros</label>
                       <input
                         type="text"
                         class="form-control"
@@ -181,17 +170,17 @@
                       />
                     </div>
                   </div>
-                  <div class="col-12 mt-75">
+                  <!-- <div class="col-12 mt-75">
                     <div class="alert alert-warning mb-50" role="alert">
                       <h4 class="alert-heading">Your email is not confirmed. Please check your inbox.</h4>
                       <div class="alert-body">
                         <a href="javascript: void(0);" class="alert-link">Resend confirmation</a>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary mt-2 mr-1">Save changes</button>
-                    <button type="reset" class="btn btn-outline-secondary mt-2">Cancel</button>
+                    <button type="submit" class="btn btn-primary mt-2 mr-1">Guardar Cambios</button>
+                    <button type="reset" class="btn btn-outline-secondary mt-2">Cancelar</button>
                   </div>
                 </div>
               </form>
@@ -212,14 +201,14 @@
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-old-password">Old Password</label>
+                      <label for="account-old-password">Contraseña Actual</label>
                       <div class="input-group form-password-toggle input-group-merge">
                         <input
                           type="password"
                           class="form-control"
                           id="account-old-password"
                           name="password"
-                          placeholder="Old Password"
+                          placeholder="Contraseña Actual"
                         />
                         <div class="input-group-append">
                           <div class="input-group-text cursor-pointer">
@@ -233,14 +222,14 @@
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-new-password">New Password</label>
+                      <label for="account-new-password">Nueva Contraseña</label>
                       <div class="input-group form-password-toggle input-group-merge">
                         <input
                           type="password"
                           id="account-new-password"
                           name="new-password"
                           class="form-control"
-                          placeholder="New Password"
+                          placeholder="Nueva Contraseña"
                         />
                         <div class="input-group-append">
                           <div class="input-group-text cursor-pointer">
@@ -252,14 +241,14 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-retype-new-password">Retype New Password</label>
+                      <label for="account-retype-new-password">Repita la Nueva Contraseña</label>
                       <div class="input-group form-password-toggle input-group-merge">
                         <input
                           type="password"
                           class="form-control"
                           id="account-retype-new-password"
                           name="confirm-new-password"
-                          placeholder="New Password"
+                          placeholder="Repita la Nueva Contraseña"
                         />
                         <div class="input-group-append">
                           <div class="input-group-text cursor-pointer"><i data-feather="eye"></i></div>
@@ -268,8 +257,8 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary mr-1 mt-1">Save changes</button>
-                    <button type="reset" class="btn btn-outline-secondary mt-1">Cancel</button>
+                    <button type="submit" class="btn btn-primary mr-1 mt-1">Guardar Cambios</button>
+                    <button type="reset" class="btn btn-outline-secondary mt-1">Cancelar</button>
                   </div>
                 </div>
               </form>
@@ -290,7 +279,7 @@
                 <div class="row">
                   <div class="col-12">
                     <div class="form-group">
-                      <label for="accountTextarea">Bio</label>
+                      <label for="accountTextarea">Informacion</label>
                       <textarea
                         class="form-control"
                         id="accountTextarea"
@@ -301,7 +290,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-birth-date">Birth date</label>
+                      <label for="account-birth-date">Fecha de Cumpleaños</label>
                       <input
                         type="text"
                         class="form-control flatpickr"
@@ -313,17 +302,17 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="accountSelect">Country</label>
+                      <label for="accountSelect">Pais</label>
                       <select class="form-control" id="accountSelect">
                         <option>USA</option>
-                        <option>India</option>
-                        <option>Canada</option>
+                        <option>Ecuador</option>
+                        <option>Peru</option>
                       </select>
                     </div>
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-website">Website</label>
+                      <label for="account-website">Pagina Web</label>
                       <input
                         type="text"
                         class="form-control"
@@ -335,7 +324,7 @@
                   </div>
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-phone">Phone</label>
+                      <label for="account-phone">Telefono</label>
                       <input
                         type="text"
                         class="form-control"
@@ -347,8 +336,8 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn btn-primary mt-1 mr-1">Save changes</button>
-                    <button type="reset" class="btn btn-outline-secondary mt-1">Cancel</button>
+                    <button type="submit" class="btn btn-primary mt-1 mr-1">Guardar Cambios</button>
+                    <button type="reset" class="btn btn-outline-secondary mt-1">Cancelar</button>
                   </div>
                 </div>
               </form>
@@ -434,58 +423,7 @@
                     <hr class="my-2" />
                   </div>
 
-                  <div class="col-12 mt-1">
-                    <!-- profile connection header -->
-                    <div class="d-flex align-items-center mb-3">
-                      <i data-feather="user" class="font-medium-3"></i>
-                      <h4 class="mb-0 ml-75">Profile Connections</h4>
-                    </div>
-
-                    <div class="row">
-                      <!-- twitter user -->
-                      <div class="col-6 col-md-3 text-center mb-1">
-                        <p class="font-weight-bold">Your Twitter</p>
-                        <div class="avatar mb-1">
-                          <span class="avatar-content">
-                            <img
-                              src="{{asset('images/avatars/11-small.png')}}"
-                              alt="avatar img"
-                              width="40"
-                              height="40"
-                            />
-                          </span>
-                        </div>
-                        <p class="mb-0">@johndoe</p>
-                        <a href="javascript:void(0)">Disconnect</a>
-                      </div>
-                      <!-- facebook button -->
-                      <div class="col-6 col-md-3 text-center mb-1">
-                        <p class="font-weight-bold mb-2">Your Facebook</p>
-                        <button class="btn btn-outline-primary">Connect</button>
-                      </div>
-                      <!-- google user -->
-                      <div class="col-6 col-md-3 text-center mb-1">
-                        <p class="font-weight-bold">Your Google</p>
-                        <div class="avatar mb-1">
-                          <span class="avatar-content">
-                            <img
-                              src="{{asset('images/avatars/3-small.png')}}"
-                              alt="avatar img"
-                              width="40"
-                              height="40"
-                            />
-                          </span>
-                        </div>
-                        <p class="mb-0">@luraweber</p>
-                        <a href="javascript:void(0)">Disconnect</a>
-                      </div>
-                      <!-- github button -->
-                      <div class="col-6 col-md-3 text-center mb-2">
-                        <p class="font-weight-bold mb-1">Your GitHub</p>
-                        <button class="btn btn-outline-primary">Connect</button>
-                      </div>
-                    </div>
-                  </div>
+              
                   <div class="col-12">
                     <!-- submit and cancel button -->
                     <button type="submit" class="btn btn-primary mr-1 mt-1">Save changes</button>
@@ -498,62 +436,7 @@
             <!--/ social -->
 
             <!-- notifications -->
-            <div
-              class="tab-pane fade"
-              id="account-vertical-notifications"
-              role="tabpanel"
-              aria-labelledby="account-pill-notifications"
-              aria-expanded="false"
-            >
-              <div class="row">
-                <h6 class="section-label mx-1 mb-2">Activity</h6>
-                <div class="col-12 mb-2">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" checked id="accountSwitch1" />
-                    <label class="custom-control-label" for="accountSwitch1">
-                      Email me when someone comments onmy article
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12 mb-2">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" checked id="accountSwitch2" />
-                    <label class="custom-control-label" for="accountSwitch2">
-                      Email me when someone answers on my form
-                    </label>
-                  </div>
-                </div>
-                <div class="col-12 mb-2">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="accountSwitch3" />
-                    <label class="custom-control-label" for="accountSwitch3">Email me hen someone follows me</label>
-                  </div>
-                </div>
-                <h6 class="section-label mx-1 mt-2">Application</h6>
-                <div class="col-12 mt-1 mb-2">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" checked id="accountSwitch4" />
-                    <label class="custom-control-label" for="accountSwitch4">News and announcements</label>
-                  </div>
-                </div>
-                <div class="col-12 mb-2">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" checked id="accountSwitch6" />
-                    <label class="custom-control-label" for="accountSwitch6">Weekly product updates</label>
-                  </div>
-                </div>
-                <div class="col-12 mb-75">
-                  <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="accountSwitch5" />
-                    <label class="custom-control-label" for="accountSwitch5">Weekly blog digest</label>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-primary mt-2 mr-1">Save changes</button>
-                  <button type="reset" class="btn btn-outline-secondary mt-2">Cancel</button>
-                </div>
-              </div>
-            </div>
+            
             <!--/ notifications -->
           </div>
         </div>

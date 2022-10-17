@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\Models\VsEmplox;
 use App\Http\Resources\VsEmploxCollection;
 
+use App\Exports\VsEmploxExport;
+use Maatwebsite\Excel\Excel;
+
+
 class VsEmploxController extends Controller
 {
     public $USU_ROL;
     public $USU_NO;
-
 
 
     public function index(){
@@ -75,5 +78,49 @@ class VsEmploxController extends Controller
                 break;
         }
         return response()->json(['status' => 200,'result' => $data,'use_No'=> $this->USU_ROL]);   
-    }   
+    }  
+    
+    
+    public function exportExcel(){    
+
+		$data = $this->dataExport();
+
+        return (new VsEmploxExport)->vsemploxs($data)->download('vsemploxs.xlsx', Excel::XLSX);
+     
+    }
+    public function exportPdf(){
+
+    	$data = $this->dataExport();
+     
+        return (new VsEmploxExport)->vsemploxs($data)->download('vsemploxs.pdf', Excel::DOMPDF);     
+    }
+
+    function dataExport(){
+
+        $this->USU_ROL =   session()->get('USU_ROL');
+        $this->USU_NO  =   session()->get('USU_NO'); 
+
+        $data=array();
+
+        switch($this->USU_ROL)
+        {  
+            case 1:  // System Manager				
+             
+              $data = VsEmplox::orderBy('LAS_NM')->get();
+                  
+              break;
+
+            case 5:  // Docente		
+              
+                $data = VsEmplox::where('EMP_NO',$this->USU_NO)->get();         
+                break;        
+
+            default:					
+                
+               $data = VsEmplox::where('ESTATU',1)->orderBy('LAS_NM')->get();
+			 	
+              break;
+        }
+        return $data;
+    } 
 }
